@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "ir",
+    "input_md",
+    "output_md",
+    "topics",
+    "topics_core"
+]

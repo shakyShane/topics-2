@@ -1,6 +1,6 @@
-use comrak::arena_tree::Node;
-use comrak::nodes::{Ast, AstNode, NodeHeading, NodeValue};
-use comrak::{format_html, parse_document, Arena, ComrakOptions};
+
+use comrak::nodes::{AstNode, NodeHeading, NodeValue};
+use comrak::{parse_document, Arena, ComrakOptions};
 use eyre::Report;
 use std::str::FromStr;
 
@@ -30,7 +30,7 @@ fn from_str(input: &str) -> eyre::Result<InputMd> {
 fn process_node<'a>(node: &'a AstNode<'a>) {
     for child in node.children() {
         let ast = child.data.borrow();
-        let start_line = ast.start_line;
+        let _start_line = ast.start_line;
         match &ast.value {
             NodeValue::Heading(NodeHeading { level: 1, .. }) => {
                 let text = collect_single_line_text(&child);
@@ -64,7 +64,7 @@ mod test {
     use super::*;
     #[test]
     fn test() -> eyre::Result<()> {
-        let cm = InputMd::from_str(
+        let _cm = InputMd::from_str(
             "# Command: hello world
 
 ```shell

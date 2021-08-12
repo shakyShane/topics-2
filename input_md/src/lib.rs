@@ -1,7 +1,8 @@
-
 use comrak::nodes::{AstNode, NodeHeading, NodeValue};
 use comrak::{parse_document, Arena, ComrakOptions};
 use eyre::Report;
+use ir::Ir;
+use std::convert::TryInto;
 use std::str::FromStr;
 
 pub struct InputMd {}
@@ -17,6 +18,14 @@ impl FromStr for InputMd {
 impl InputMd {
     pub fn try_new(s: &str) -> eyre::Result<Self> {
         from_str(s)
+    }
+}
+
+impl TryInto<Ir> for InputMd {
+    type Error = Report;
+
+    fn try_into(self) -> Result<Ir, Self::Error> {
+        todo!("implement convert from input_md -> Ir")
     }
 }
 

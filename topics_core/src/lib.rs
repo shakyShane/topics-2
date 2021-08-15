@@ -1,4 +1,4 @@
-use eyre::Report;
+
 use ir::Ir;
 use std::convert::TryInto;
 
@@ -10,8 +10,8 @@ fn from_string() -> eyre::Result<()> {
 
 #[test]
 fn test_from_string() {
-    let input1 = include_str!("../../input_md/fixtures/run-screenshots.md");
-    let input2 = include_str!("../../input_md/fixtures/global-config.md");
+    let _input1 = include_str!("../../input_md/fixtures/run-screenshots.md");
+    let _input2 = include_str!("../../input_md/fixtures/global-config.md");
 
-    let result = from_string();
+    let _result = from_string();
 }

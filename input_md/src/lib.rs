@@ -74,7 +74,7 @@ mod test {
     #[test]
     fn test() -> eyre::Result<()> {
         let input1 = include_str!("../fixtures/run-screenshots.md");
-        let input2 = include_str!("../fixtures/global-config.md");
+        let _input2 = include_str!("../fixtures/global-config.md");
         let _cm = InputMd::from_str(input1)?;
         Ok(())
     }

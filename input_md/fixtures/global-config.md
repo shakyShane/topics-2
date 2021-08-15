@@ -1,6 +1,6 @@
 # Config: Global
 
 ```yaml
-paths: 
+paths:
   client: containers/www/client
 ```

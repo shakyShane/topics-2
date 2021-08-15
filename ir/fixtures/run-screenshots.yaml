@@ -5,13 +5,14 @@ content:
     content:
       - kind: Markdown
         content: Please don't skip the dependencies below - open each link and follow through.
-      - kind: List
+      - kind: NamedRefList
         content:
           - kind: NamedRef
             name: Set up machine for Kubernetes
           - kind: NamedRef
             name: NPM rc configuration
   - kind: Step
+    name: "Command: Build the images"
     content:
       - kind: Command
         name: Build the images
@@ -29,8 +30,9 @@ content:
           - kind: CommandDefinition
             params:
               language: shell
-            content: skaffold build -b client -b screenshots
+            command: skaffold build -b client -b screenshots
   - kind: Step
+    name: "Command: Run the tests"
     content:
       - kind: Command
         name: Run the tests
@@ -38,8 +40,8 @@ content:
           - kind: CommandDefinition
             params:
               language: shell
-            content: skaffold build -b "client" -b "screenshots"
+            command: skaffold build -b "client" -b "screenshots"
           - kind: CommandConfig
             params:
               language: toml
-            content: cwd = { valueFrom = "config", name = "Global", path = "paths.client" }
+            config: cwd = { valueFrom = "config", name = "Global", path = "paths.client" }

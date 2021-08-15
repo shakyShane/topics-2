@@ -1,27 +1,31 @@
-use crate::action::Action;
-use crate::dependency_list::DependencyList;
-use crate::named_ref::NamedRef;
-use crate::named_ref_list::NamedRefList;
-use instruction::Instruction;
-use markdown::Markdown;
-use thiserror::Error;
+pub use crate::action::Action;
+pub use crate::command::{Command, CommandConfig, CommandDefinition, CommandParams, InputLanguage};
+pub use crate::dependency_list::DependencyList;
+pub use crate::named_ref::NamedRef;
+pub use crate::named_ref_list::NamedRefList;
+pub use crate::step::Step;
+pub use instruction::Instruction;
+pub use markdown::Markdown;
+pub use serde::{Deserialize, Serialize};
+pub use thiserror::Error;
+pub use typescript_definitions::TypeScriptify;
 
-mod action;
-mod command;
-mod dependency_list;
-mod instruction;
-mod location;
-mod markdown;
-mod named_ref;
-mod named_ref_list;
-mod step;
+pub mod action;
+pub mod command;
+pub mod dependency_list;
+pub mod instruction;
+pub mod location;
+pub mod markdown;
+pub mod named_ref;
+pub mod named_ref_list;
+pub mod step;
 
-#[derive(Debug, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Deserialize, Serialize, TypeScriptify)]
 pub struct Ir {
     pub items: Vec<IrItem>,
 }
 
-#[derive(Debug, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Deserialize, Serialize, TypeScriptify)]
 #[serde(tag = "kind")]
 pub enum IrItem {
     Action(Action),
@@ -30,10 +34,10 @@ pub enum IrItem {
     DependencyList(DependencyList),
     NamedRefList(NamedRefList),
     NamedRef(NamedRef),
-    Step(step::Step),
-    Command(command::Command),
-    CommandDefinition(command::CommandDefinition),
-    CommandConfig(command::CommandConfig),
+    Step(Step),
+    Command(Command),
+    CommandDefinition(CommandDefinition),
+    CommandConfig(CommandConfig),
 }
 //
 // #[derive(thiserror::Error, Debug)]
@@ -66,8 +70,9 @@ mod test {
     #[test]
     fn test_deserialize() -> eyre::Result<()> {
         let input1 = include_str!("../fixtures/run-screenshots.yaml");
-        let ir: Result<IrItem, _> = serde_yaml::from_str(input1);
-        println!("ir={:#?}", ir);
+        let ir = Ir::from_yaml_str(input1)?;
+        let json = serde_json::to_string_pretty(&ir)?;
+        println!("{}", json);
         Ok(())
     }
 }

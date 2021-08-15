@@ -4,10 +4,16 @@ version = "0.1.0"
 authors = ["Shane Osbourne <shane.osbourne8@gmail.com>"]
 edition = "2018"
 
+[[bin]]
+name = "ir_ts_types"
+path = "src/ts_types.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 serde = { version = "1.0.127", features = ["serde_derive"] }
 serde_yaml = "0.8.17"
+serde_json = "1.0.66"
 eyre = "0.6.5"
 thiserror = "1.0.26"
+typescript-definitions = { git = "https://github.com/onelson/typescript-definitions", branch = "no-debug-attrs"}

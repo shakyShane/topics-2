@@ -1,18 +1,24 @@
-pub use crate::action::Action;
-pub use crate::command::{Command, CommandConfig, CommandDefinition, CommandParams, InputLanguage};
-pub use crate::dependency_list::DependencyList;
-pub use crate::named_ref::NamedRef;
-pub use crate::named_ref_list::NamedRefList;
-pub use crate::step::Step;
-pub use instruction::Instruction;
-pub use markdown::Markdown;
 pub use serde::{Deserialize, Serialize};
 pub use thiserror::Error;
 pub use typescript_definitions::TypeScriptify;
 
+pub use input_lang::InputLanguage;
+pub use instruction::Instruction;
+pub use markdown::Markdown;
+
+pub use crate::action::Action;
+pub use crate::command::{Command, CommandConfig, CommandDefinition, CommandParams};
+pub use crate::config::{Config, ConfigDefinition, ConfigParams};
+pub use crate::dependency_list::DependencyList;
+pub use crate::named_ref::NamedRef;
+pub use crate::named_ref_list::NamedRefList;
+pub use crate::step::Step;
+
 pub mod action;
 pub mod command;
+pub mod config;
 pub mod dependency_list;
+pub mod input_lang;
 pub mod instruction;
 pub mod location;
 pub mod markdown;
@@ -38,6 +44,8 @@ pub enum IrItem {
     Command(Command),
     CommandDefinition(CommandDefinition),
     CommandConfig(CommandConfig),
+    Config(Config),
+    ConfigDefinition(ConfigDefinition),
 }
 //
 // #[derive(thiserror::Error, Debug)]
@@ -67,6 +75,7 @@ impl Ir {
 #[cfg(test)]
 mod test {
     use super::*;
+
     #[test]
     fn test_deserialize() -> eyre::Result<()> {
         let input1 = include_str!("../fixtures/run-screenshots.yaml");

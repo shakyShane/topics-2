@@ -9,7 +9,9 @@ export type IrItem =
  | { kind: "Step"; fields: Step } 
  | { kind: "Command"; fields: Command } 
  | { kind: "CommandDefinition"; fields: CommandDefinition } 
- | { kind: "CommandConfig"; fields: CommandConfig };
+ | { kind: "CommandConfig"; fields: CommandConfig } 
+ | { kind: "Config"; fields: Config } 
+ | { kind: "ConfigDefinition"; fields: ConfigDefinition };
 export type Action = { name: string; content: IrItem [] };
 export type Instruction = { name: string; loc: Location | null; content: IrItem [] };
 export type Markdown = { content: string; loc: Location | null };
@@ -22,3 +24,6 @@ export type CommandDefinition = { command: string; params: CommandParams };
 export type CommandConfig = { config: string; params: CommandParams };
 export type CommandParams = { language: InputLanguage | null };
 export enum InputLanguage { toml = "toml", yaml = "yaml", shell = "shell" };
+export type Config = { name: string; content: IrItem [] };
+export type ConfigDefinition = { params: ConfigParams; config: string };
+export type ConfigParams = { language: InputLanguage | null };

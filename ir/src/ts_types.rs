@@ -15,4 +15,7 @@ fn main() {
     println!("{}", ir::CommandConfig::type_script_ify());
     println!("{}", ir::CommandParams::type_script_ify());
     println!("{}", ir::InputLanguage::type_script_ify());
+    println!("{}", ir::Config::type_script_ify());
+    println!("{}", ir::ConfigDefinition::type_script_ify());
+    println!("{}", ir::ConfigParams::type_script_ify());
 }

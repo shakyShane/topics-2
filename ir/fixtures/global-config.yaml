@@ -1,0 +1,11 @@
+kind: Config
+name: Global
+content:
+  - kind: Markdown
+    content: This is available from any document
+  - kind: ConfigDefinition
+    params:
+      language: yaml
+    config: |
+      paths:
+        client: containers/www/client

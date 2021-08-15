@@ -10,13 +10,13 @@ fn from_string() -> eyre::Result<()> {
 #[cfg(test)]
 mod test {
     use super::*;
-    use ir::IrItem;
 
     #[test]
     fn test_deserialize() -> eyre::Result<()> {
         let input1 = include_str!("../../ir/fixtures/run-screenshots.yaml");
-        let ir = Ir::from_yaml_str(input1);
-        println!("ir={:#?}", ir);
+        let _ir = Ir::from_yaml_str(input1)?;
+        let input2 = include_str!("../../ir/fixtures/global-config.yaml");
+        let _ir2 = Ir::from_yaml_str(input2)?;
         Ok(())
     }
 }

@@ -1,6 +1,8 @@
-use crate::IrItem;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use typescript_definitions::TypeScriptify;
+
+use crate::input_lang::InputLanguage;
+use crate::IrItem;
 
 #[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct Command {
@@ -23,16 +25,6 @@ pub struct CommandParams {
 pub struct CommandConfig {
     config: String,
     params: CommandParams,
-}
-
-#[derive(Debug, Deserialize, Serialize, TypeScriptify)]
-pub enum InputLanguage {
-    #[serde(rename = "toml")]
-    Toml,
-    #[serde(rename = "yaml")]
-    Yaml,
-    #[serde(rename = "shell")]
-    Shell,
 }
 
 // impl Serialize for InputLanguage {

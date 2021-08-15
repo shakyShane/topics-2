@@ -10,3 +10,4 @@ edition = "2018"
 serde = { version = "1.0.127", features = ["serde_derive"] }
 serde_yaml = "0.8.17"
 eyre = "0.6.5"
+thiserror = "1.0.26"

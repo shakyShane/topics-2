@@ -1,4 +1,3 @@
-
 use ir::Ir;
 use std::convert::TryInto;
 
@@ -8,10 +7,16 @@ fn from_string() -> eyre::Result<()> {
     Ok(())
 }
 
-#[test]
-fn test_from_string() {
-    let _input1 = include_str!("../../input_md/fixtures/run-screenshots.md");
-    let _input2 = include_str!("../../input_md/fixtures/global-config.md");
+#[cfg(test)]
+mod test {
+    use super::*;
+    use ir::IrItem;
 
-    let _result = from_string();
+    #[test]
+    fn test_deserialize() -> eyre::Result<()> {
+        let input1 = include_str!("../../ir/fixtures/run-screenshots.yaml");
+        let ir = Ir::from_yaml_str(input1);
+        println!("ir={:#?}", ir);
+        Ok(())
+    }
 }

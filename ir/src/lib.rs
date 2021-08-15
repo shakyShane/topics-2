@@ -4,6 +4,7 @@ use crate::named_ref::NamedRef;
 use crate::named_ref_list::NamedRefList;
 use instruction::Instruction;
 use markdown::Markdown;
+use thiserror::Error;
 
 mod action;
 mod command;
@@ -33,6 +34,30 @@ pub enum IrItem {
     Command(command::Command),
     CommandDefinition(command::CommandDefinition),
     CommandConfig(command::CommandConfig),
+}
+//
+// #[derive(thiserror::Error, Debug)]
+// pub enum FormatError {
+//     #[error("Invalid header (expected {expected:?}, got {found:?})")]
+//     InvalidHeader { expected: String, found: String },
+// }
+
+impl Ir {
+    ///
+    /// Helper to create an [Ir] directly from a yaml string
+    ///
+    /// ```rust
+    /// use ir::Ir;
+    ///
+    /// let input1 = include_str!("../fixtures/run-screenshots.yaml");
+    /// let r = Ir::from_yaml_str(input1);
+    /// assert!(r.is_ok())
+    /// ```
+    ///
+    pub fn from_yaml_str(s: &str) -> eyre::Result<Self> {
+        let item: IrItem = serde_yaml::from_str(s)?;
+        Ok(Self { items: vec![item] })
+    }
 }
 
 #[cfg(test)]

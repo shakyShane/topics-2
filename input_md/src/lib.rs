@@ -25,7 +25,7 @@ impl TryInto<Ir> for InputMd {
     type Error = Report;
 
     fn try_into(self) -> Result<Ir, Self::Error> {
-        todo!("implement convert from input_md -> Ir")
+        Ok(Ir { items: vec![] })
     }
 }
 
@@ -73,15 +73,9 @@ mod test {
     use super::*;
     #[test]
     fn test() -> eyre::Result<()> {
-        let _cm = InputMd::from_str(
-            "# Command: hello world
-
-```shell
-echo hello $NAME
-```
-
-        ",
-        )?;
+        let input1 = include_str!("../fixtures/run-screenshots.md");
+        let input2 = include_str!("../fixtures/global-config.md");
+        let _cm = InputMd::from_str(input1)?;
         Ok(())
     }
 }

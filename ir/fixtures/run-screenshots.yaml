@@ -12,7 +12,7 @@ content:
           - kind: NamedRef
             name: NPM rc configuration
   - kind: Step
-    name: "Command: Build the images"
+    name: "Build the images"
     content:
       - kind: Command
         name: Build the images
@@ -32,7 +32,7 @@ content:
               language: shell
             command: skaffold build -b client -b screenshots
   - kind: Step
-    name: "Command: Run the tests"
+    name: "Run the tests"
     content:
       - kind: Command
         name: Run the tests

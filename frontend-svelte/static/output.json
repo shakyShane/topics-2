@@ -1,0 +1,105 @@
+{
+  "items": [
+    {
+      "kind": "Action",
+      "name": "Run screenshot tests",
+      "content": [
+        {
+          "kind": "DependencyList",
+          "content": [
+            {
+              "kind": "Markdown",
+              "content": "Please don't skip the dependencies below - open each link and follow through.",
+              "loc": null
+            },
+            {
+              "kind": "NamedRefList",
+              "content": [
+                {
+                  "kind": "NamedRef",
+                  "name": "Set up machine for Kubernetes",
+                  "loc": null
+                },
+                {
+                  "kind": "NamedRef",
+                  "name": "NPM rc configuration",
+                  "loc": null
+                }
+              ],
+              "loc": null
+            }
+          ],
+          "loc": null
+        },
+        {
+          "kind": "Step",
+          "name": "Command: Build the images",
+          "content": [
+            {
+              "kind": "Command",
+              "name": "Build the images",
+              "content": [
+                {
+                  "kind": "Markdown",
+                  "content": "The screenshot testing process requires at least the following 2 images to be built before they are run.\n\n```\nclient\ndisconnectedlayoutservice\n```\n\nYou can build these with the following command\n",
+                  "loc": null
+                },
+                {
+                  "kind": "CommandDefinition",
+                  "command": "skaffold build -b client -b screenshots",
+                  "params": {
+                    "language": "shell"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "Step",
+          "name": "Command: Run the tests",
+          "content": [
+            {
+              "kind": "Command",
+              "name": "Run the tests",
+              "content": [
+                {
+                  "kind": "CommandDefinition",
+                  "command": "skaffold build -b \"client\" -b \"screenshots\"",
+                  "params": {
+                    "language": "shell"
+                  }
+                },
+                {
+                  "kind": "CommandConfig",
+                  "config": "cwd = { valueFrom = \"config\", name = \"Global\", path = \"paths.client\" }",
+                  "params": {
+                    "language": "toml"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "Config",
+      "name": "Global",
+      "content": [
+        {
+          "kind": "Markdown",
+          "content": "This is available from any document",
+          "loc": null
+        },
+        {
+          "kind": "ConfigDefinition",
+          "params": {
+            "language": "yaml"
+          },
+          "config": "paths:\n  client: containers/www/client"
+        }
+      ]
+    }
+  ]
+}

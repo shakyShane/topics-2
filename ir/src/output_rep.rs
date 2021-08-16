@@ -37,11 +37,9 @@ fn visit(item: &IrItem, id: String, output: &mut OutputRep) {
     if let Some(ch) = item.children() {
         for item in ch {
             let item_id = item.id();
-            output
-                .refs
-                .entry(id.clone())
-                .or_insert(Default::default())
-                .push(item_id.clone());
+            if let Some(refs) = output.refs.get_mut(&id) {
+                refs.push(item_id.clone());
+            }
             visit(item, item_id, output);
         }
     }

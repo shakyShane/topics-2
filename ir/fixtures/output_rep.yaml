@@ -13,71 +13,9 @@ refs:
   id_06: []
   id_07: []
   id_08: []
-kinds:
-  Command:
-    - 'id_01'
-  CommandDefinition:
-    - 'id_06'
-  DependencyList:
-    - 'id_02'
-  Markdown:
-    - 'id_03'
-    - 'id_05'
-  NamedRefList:
-    - 'id_04'
-  NamedRef:
-    - 'id_07'
-    - 'id_08'
-  Config:
-    - 'id_config_01'
 items:
   id_00:
     kind: Action
     name: Run screenshot tests
     content:
-      - id_02
-  id_01:
-    kind: Command
-    name: Build the images
-    content:
-      - id_05
-      - id_06
-  id_02:
-    kind: DependencyList
-    content:
-      - id_04
-  id_00002:
-    kind: Step
-    name: "Build the images"
-    content:
-      - id_01
-  id_03:
-    kind: Markdown
-    content: Please don't skip the dependencies below - open each link and follow through.
-  id_04:
-    kind: NamedRefList
-    content:
-      - kind: IdRef
-        id: "01_2"
-  id_05:
-    kind: Markdown
-    content: |
-      The screenshot testing process requires at least the following 2 images to be built before they are run.
-
-      ```
-      client
-      disconnectedlayoutservice
-      ```
-
-      You can build these with the following command
-  id_06:
-    kind: CommandDefinition
-    params:
-      language: shell
-    command: skaffold build -b client -b screenshots
-  id_07:
-    kind: NamedRef
-    name: Set up machine for Kubernetes
-  id_08:
-    kind: NamedRef
-    name: NPM rc configuration
+      - { kind: IdRef, id: id_02 }

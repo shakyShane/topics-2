@@ -27,6 +27,7 @@ pub mod location;
 pub mod markdown;
 pub mod named_ref;
 pub mod named_ref_list;
+pub mod output_rep;
 pub mod step;
 
 #[derive(Debug, Deserialize, Serialize, TypeScriptify)]
@@ -92,26 +93,11 @@ mod test {
     #[test]
     fn test_resolve() -> eyre::Result<()> {
         let yaml = r#"
-items:
-  - { kind: IdRef, id: "01_01" } 
+        items:
+          - { kind: IdRef, id: "01_01" } 
           "#;
 
-        #[derive(Debug, Deserialize, Serialize)]
-        struct S {
-            items: Vec<ObjOr>,
-        }
-
-        #[derive(Debug, Deserialize, Serialize)]
-        struct Cmd {
-            raw: String,
-        }
-        #[derive(Debug, Deserialize, Serialize)]
-        enum ObjOr {
-            Command(Cmd),
-            #[serde(rename = "ref")]
-            Ref(String),
-        }
-        let s: Result<S, _> = serde_yaml::from_str(yaml);
+        let s: Result<Ir, _> = serde_yaml::from_str(yaml);
         println!("{:?}", s);
         Ok(())
     }

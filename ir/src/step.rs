@@ -4,6 +4,5 @@ use typescript_definitions::TypeScriptify;
 
 #[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct Step {
-    pub(crate) name: String,
-    content: Vec<IrItem>,
+    pub content: Vec<IrItem>,
 }

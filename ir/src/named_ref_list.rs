@@ -5,6 +5,6 @@ use typescript_definitions::TypeScriptify;
 
 #[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct NamedRefList {
-    content: Vec<IrItem>,
+    pub content: Vec<IrItem>,
     loc: Option<Location>,
 }

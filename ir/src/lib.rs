@@ -56,22 +56,38 @@ pub enum IrItem {
 
 impl IrItem {
     pub fn id(&self) -> String {
-        let string = match self {
-            IrItem::Action(ac) => &ac.name,
-            IrItem::Instruction(ins) => &ins.name,
-            IrItem::Markdown(_) => nanoid::nanoid(),
-            IrItem::DependencyList(dl) => nanoid::nanoid(),
-            IrItem::NamedRefList(_) => nanoid::nanoid(),
-            IrItem::NamedRef(_) => nanoid::nanoid(),
-            IrItem::IdRef(_) => nanoid::nanoid(),
-            IrItem::Step(step) => &step.name,
-            IrItem::Command(cmd) => &cmd.name,
-            IrItem::CommandDefinition(_) => nanoid::nanoid(),
-            IrItem::CommandConfig(_) => nanoid::nanoid(),
-            IrItem::Config(cfg) => &cfg.name,
-            IrItem::ConfigDefinition(_) => nanoid::nanoid(),
-        };
-        slug::slugify(string)
+        match self {
+            IrItem::Action(ac) => slug::slugify(&ac.name),
+            IrItem::Instruction(ins) => slug::slugify(&ins.name),
+            IrItem::Markdown(_) => format!("Markdown_{}", nanoid::nanoid!()),
+            IrItem::DependencyList(dl) => format!("DependencyList_{}", nanoid::nanoid!()),
+            IrItem::NamedRefList(_) => format!("NamedRefList_{}", nanoid::nanoid!()),
+            IrItem::NamedRef(_) => format!("NamedRef_{}", nanoid::nanoid!()),
+            IrItem::IdRef(_) => format!("IdRef_{}", nanoid::nanoid!()),
+            IrItem::Step(step) => format!("Step_{}", nanoid::nanoid!()),
+            IrItem::Command(cmd) => slug::slugify(&cmd.name),
+            IrItem::CommandDefinition(_) => format!("CommandDefinition_{}", nanoid::nanoid!()),
+            IrItem::CommandConfig(_) => format!("CommandConfig_{}", nanoid::nanoid!()),
+            IrItem::Config(cfg) => slug::slugify(&cfg.name),
+            IrItem::ConfigDefinition(_) => format!("ConfigDefinition_{}", nanoid::nanoid!()),
+        }
+    }
+    pub fn children(&self) -> Option<&Vec<IrItem>> {
+        match self {
+            IrItem::Action(act) => Some(&act.content),
+            IrItem::Instruction(_) => None,
+            IrItem::Markdown(_) => None,
+            IrItem::DependencyList(dl) => Some(&dl.content),
+            IrItem::NamedRefList(_) => None,
+            IrItem::NamedRef(_) => None,
+            IrItem::IdRef(_) => None,
+            IrItem::Step(step) => Some(&step.content),
+            IrItem::Command(cmd) => Some(&cmd.content),
+            IrItem::CommandDefinition(_) => None,
+            IrItem::CommandConfig(_) => None,
+            IrItem::Config(cnf) => Some(&cnf.content),
+            IrItem::ConfigDefinition(_) => None,
+        }
     }
 }
 

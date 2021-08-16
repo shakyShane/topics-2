@@ -6,13 +6,16 @@ pub use input_lang::InputLanguage;
 pub use instruction::Instruction;
 pub use markdown::Markdown;
 
-pub use crate::action::Action;
-pub use crate::command::{Command, CommandConfig, CommandDefinition, CommandParams};
-pub use crate::config::{Config, ConfigDefinition, ConfigParams};
-pub use crate::dependency_list::DependencyList;
-pub use crate::named_ref::NamedRef;
-pub use crate::named_ref_list::NamedRefList;
-pub use crate::step::Step;
+pub use crate::{
+    action::Action,
+    command::{Command, CommandConfig, CommandDefinition, CommandParams},
+    config::{Config, ConfigDefinition, ConfigParams},
+    dependency_list::DependencyList,
+    named_ref::IdRef,
+    named_ref::NamedRef,
+    named_ref_list::NamedRefList,
+    step::Step,
+};
 
 pub mod action;
 pub mod command;
@@ -40,6 +43,7 @@ pub enum IrItem {
     DependencyList(DependencyList),
     NamedRefList(NamedRefList),
     NamedRef(NamedRef),
+    IdRef(IdRef),
     Step(Step),
     Command(Command),
     CommandDefinition(CommandDefinition),
@@ -77,11 +81,38 @@ mod test {
     use super::*;
 
     #[test]
-    fn test_deserialize() -> eyre::Result<()> {
+    fn test_deserialize_ir() -> eyre::Result<()> {
         let input1 = include_str!("../fixtures/run-screenshots.yaml");
         let ir = Ir::from_yaml_str(input1)?;
         let json = serde_json::to_string_pretty(&ir)?;
         println!("{}", json);
+        Ok(())
+    }
+
+    #[test]
+    fn test_resolve() -> eyre::Result<()> {
+        let yaml = r#"
+items:
+  - { kind: IdRef, id: "01_01" } 
+          "#;
+
+        #[derive(Debug, Deserialize, Serialize)]
+        struct S {
+            items: Vec<ObjOr>,
+        }
+
+        #[derive(Debug, Deserialize, Serialize)]
+        struct Cmd {
+            raw: String,
+        }
+        #[derive(Debug, Deserialize, Serialize)]
+        enum ObjOr {
+            Command(Cmd),
+            #[serde(rename = "ref")]
+            Ref(String),
+        }
+        let s: Result<S, _> = serde_yaml::from_str(yaml);
+        println!("{:?}", s);
         Ok(())
     }
 }

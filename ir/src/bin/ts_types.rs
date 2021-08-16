@@ -9,6 +9,7 @@ fn main() {
     println!("{}", ir::DependencyList::type_script_ify());
     println!("{}", ir::NamedRefList::type_script_ify());
     println!("{}", ir::NamedRef::type_script_ify());
+    println!("{}", ir::IdRef::type_script_ify());
     println!("{}", ir::Step::type_script_ify());
     println!("{}", ir::Command::type_script_ify());
     println!("{}", ir::CommandDefinition::type_script_ify());

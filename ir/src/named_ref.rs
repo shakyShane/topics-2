@@ -7,3 +7,8 @@ pub struct NamedRef {
     name: String,
     loc: Option<Location>,
 }
+
+#[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
+pub struct IdRef {
+    id: String,
+}

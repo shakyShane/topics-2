@@ -6,6 +6,7 @@ export type IrItem =
  | { kind: "DependencyList"; fields: DependencyList } 
  | { kind: "NamedRefList"; fields: NamedRefList } 
  | { kind: "NamedRef"; fields: NamedRef } 
+ | { kind: "IdRef"; fields: IdRef } 
  | { kind: "Step"; fields: Step } 
  | { kind: "Command"; fields: Command } 
  | { kind: "CommandDefinition"; fields: CommandDefinition } 
@@ -18,6 +19,7 @@ export type Markdown = { content: string; loc: Location | null };
 export type DependencyList = { content: IrItem []; loc: Location | null };
 export type NamedRefList = { content: IrItem []; loc: Location | null };
 export type NamedRef = { name: string; loc: Location | null };
+export type IdRef = { id: string };
 export type Step = { name: string; content: IrItem [] };
 export type Command = { name: string; content: IrItem [] };
 export type CommandDefinition = { command: string; params: CommandParams };

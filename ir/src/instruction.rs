@@ -5,7 +5,7 @@ use typescript_definitions::TypeScriptify;
 
 #[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct Instruction {
-    name: String,
+    pub name: String,
     loc: Option<Location>,
     content: Vec<IrItem>,
 }

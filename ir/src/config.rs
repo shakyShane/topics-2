@@ -4,7 +4,7 @@ use typescript_definitions::TypeScriptify;
 
 #[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct Config {
-    name: String,
+    pub(crate) name: String,
     content: Vec<IrItem>,
 }
 

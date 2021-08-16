@@ -20,11 +20,50 @@ impl TryInto<OutputRep> for Vec<Ir> {
 }
 
 fn try_into(irs: &[Ir]) -> eyre::Result<OutputRep> {
+    let mut output = OutputRep::default();
     for ir in irs {
-        println!("ir: {:?}", ir);
+        println!("ir ns: {:?}", ir.ns);
+        for item in &ir.items {
+            let id = slug::slugify(&item.id());
+            // output.refs.entry(id).or_insert(Default::default());
+            // let output_refs = visit(&item, &mut output);
+            // println!("output_refs=>{:?}", output_refs);
+        }
     }
+    println!("refs = {:?}", output.refs);
     Ok(Default::default())
 }
+
+// fn visit(item: &IrItem, output: &mut OutputRep) -> Vec<String> {
+//     let mut refs: Vec<String> = vec![];
+//     match item {
+//         IrItem::Action(action) => {
+//             for item in &action.content {
+//                 println!("here");
+//                 refs.extend(visit(item, output));
+//             }
+//         }
+//         IrItem::Instruction(_) => {}
+//         IrItem::Markdown(md) => {
+//             println!("got markdown");
+//         }
+//         IrItem::DependencyList(dl) => {
+//             let id = slug::slugify(&dl.name);
+//             output.refs.entry(id).or_insert(Default::default());
+//
+//         }
+//         IrItem::NamedRefList(_) => {}
+//         IrItem::NamedRef(_) => {}
+//         IrItem::IdRef(_) => {}
+//         IrItem::Step(_) => {}
+//         IrItem::Command(_) => {}
+//         IrItem::CommandDefinition(_) => {}
+//         IrItem::CommandConfig(_) => {}
+//         IrItem::Config(_) => {}
+//         IrItem::ConfigDefinition(_) => {}
+//     }
+//     refs
+// }
 
 #[derive(thiserror::Error, Debug, Serialize, Deserialize, TypeScriptify)]
 #[serde(tag = "error_kind")]

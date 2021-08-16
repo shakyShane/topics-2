@@ -6,7 +6,7 @@ use crate::IrItem;
 
 #[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct Command {
-    name: String,
+    pub(crate) name: String,
     content: Vec<IrItem>,
 }
 

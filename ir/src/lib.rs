@@ -53,7 +53,28 @@ pub enum IrItem {
     Config(Config),
     ConfigDefinition(ConfigDefinition),
 }
-//
+
+impl IrItem {
+    pub fn id(&self) -> String {
+        let string = match self {
+            IrItem::Action(ac) => &ac.name,
+            IrItem::Instruction(ins) => &ins.name,
+            IrItem::Markdown(_) => nanoid::nanoid(),
+            IrItem::DependencyList(dl) => nanoid::nanoid(),
+            IrItem::NamedRefList(_) => nanoid::nanoid(),
+            IrItem::NamedRef(_) => nanoid::nanoid(),
+            IrItem::IdRef(_) => nanoid::nanoid(),
+            IrItem::Step(step) => &step.name,
+            IrItem::Command(cmd) => &cmd.name,
+            IrItem::CommandDefinition(_) => nanoid::nanoid(),
+            IrItem::CommandConfig(_) => nanoid::nanoid(),
+            IrItem::Config(cfg) => &cfg.name,
+            IrItem::ConfigDefinition(_) => nanoid::nanoid(),
+        };
+        slug::slugify(string)
+    }
+}
+
 // #[derive(thiserror::Error, Debug)]
 // pub enum FormatError {
 //     #[error("Invalid header (expected {expected:?}, got {found:?})")]

@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	import { DATA_PATH, KINDS } from '../../utils/types';
+	/** @type {IrItem[]} */
 	let items;
 	export async function load({ page, fetch, status, error, session, context }) {
 		const kind = page.params.kind;
@@ -12,9 +13,19 @@
 		};
 	}
 </script>
+<script>
+	/** @type {IrItem[]} */
+	export let items
+</script>
 
 <template>
-	{#each items as item, i}
-		{item.kind}
-	{/each}
+	<ul>
+		{#each items as item}
+			<li>
+				<p>
+					{}
+				</p>
+			</li>
+		{/each}
+	</ul>
 </template>

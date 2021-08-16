@@ -33,7 +33,7 @@
         },
         {
           "kind": "Step",
-          "name": "Command: Build the images",
+          "name": "Build the images",
           "content": [
             {
               "kind": "Command",
@@ -57,7 +57,7 @@
         },
         {
           "kind": "Step",
-          "name": "Command: Run the tests",
+          "name": "Run the tests",
           "content": [
             {
               "kind": "Command",

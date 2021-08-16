@@ -3,21 +3,17 @@ use comrak::{parse_document, Arena, ComrakOptions};
 use eyre::Report;
 use ir::Ir;
 use std::convert::TryInto;
+use std::path::PathBuf;
 use std::str::FromStr;
 
-pub struct InputMd {}
-
-impl FromStr for InputMd {
-    type Err = Report;
-
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        from_str(s)
-    }
+#[derive(Debug, Default)]
+pub struct InputMd {
+    pb: PathBuf,
 }
 
 impl InputMd {
-    pub fn try_new(s: &str) -> eyre::Result<Self> {
-        from_str(s)
+    pub fn try_new(s: &str, pb: PathBuf) -> eyre::Result<Self> {
+        from_str(s, pb)
     }
 }
 
@@ -25,15 +21,18 @@ impl TryInto<Ir> for InputMd {
     type Error = Report;
 
     fn try_into(self) -> Result<Ir, Self::Error> {
-        Ok(Ir { items: vec![] })
+        Ok(Ir {
+            items: vec![],
+            ns: self.pb.to_string_lossy().to_string(),
+        })
     }
 }
 
-fn from_str(input: &str) -> eyre::Result<InputMd> {
+fn from_str(input: &str, pb: PathBuf) -> eyre::Result<InputMd> {
     let arena = Arena::new();
     let d = parse_document(&arena, input, &ComrakOptions::default());
     process_node(&d);
-    Ok(InputMd {})
+    Ok(InputMd { pb })
 }
 
 fn process_node<'a>(node: &'a AstNode<'a>) {

@@ -1,6 +1,7 @@
-use crate::{IdRef, IrItem};
+use crate::{IdRef, Ir, IrItem};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::convert::TryInto;
 use typescript_definitions::TypeScriptify;
 
 #[derive(Debug, Default, Serialize, Deserialize, TypeScriptify)]
@@ -8,6 +9,21 @@ pub struct OutputRep {
     errors: HashMap<String, Vec<ErrorRep>>,
     refs: HashMap<String, Vec<String>>,
     items: HashMap<String, IrItem>,
+}
+
+impl TryInto<OutputRep> for Vec<Ir> {
+    type Error = eyre::Report;
+
+    fn try_into(self) -> Result<OutputRep, Self::Error> {
+        try_into(&self)
+    }
+}
+
+fn try_into(irs: &[Ir]) -> eyre::Result<OutputRep> {
+    for ir in irs {
+        println!("ir: {:?}", ir);
+    }
+    Ok(Default::default())
 }
 
 #[derive(thiserror::Error, Debug, Serialize, Deserialize, TypeScriptify)]
@@ -20,6 +36,20 @@ pub enum ErrorRep {
 #[cfg(test)]
 mod test {
     use super::*;
+    use crate::Ir;
+    use std::convert::TryInto;
+
+    #[test]
+    fn test_convert_ir_to_output() -> eyre::Result<()> {
+        let input1 = include_str!("../fixtures/run-screenshots.yaml");
+        let input2 = include_str!("../fixtures/global-config.yaml");
+        let ir = Ir::from_yaml_str(input1, "run-screenshots.yaml")?;
+        let ir2 = Ir::from_yaml_str(input2, "global-config.yaml")?;
+        let irs = vec![ir, ir2];
+        let output: OutputRep = irs.try_into()?;
+        println!("output {:?}", output);
+        Ok(())
+    }
 
     #[test]
     fn test_deserialize_output_rep() -> eyre::Result<()> {

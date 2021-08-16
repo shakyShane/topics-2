@@ -32,6 +32,7 @@ pub mod step;
 
 #[derive(Debug, Deserialize, Serialize, TypeScriptify)]
 pub struct Ir {
+    pub ns: String,
     pub items: Vec<IrItem>,
 }
 
@@ -67,13 +68,16 @@ impl Ir {
     /// use ir::Ir;
     ///
     /// let input1 = include_str!("../fixtures/run-screenshots.yaml");
-    /// let r = Ir::from_yaml_str(input1);
+    /// let r = Ir::from_yaml_str(input1, "run-screenshots.yaml");
     /// assert!(r.is_ok())
     /// ```
     ///
-    pub fn from_yaml_str(s: &str) -> eyre::Result<Self> {
+    pub fn from_yaml_str(s: &str, ns: &str) -> eyre::Result<Self> {
         let item: IrItem = serde_yaml::from_str(s)?;
-        Ok(Self { items: vec![item] })
+        Ok(Self {
+            items: vec![item],
+            ns: ns.to_string(),
+        })
     }
 }
 
@@ -84,7 +88,7 @@ mod test {
     #[test]
     fn test_deserialize_ir() -> eyre::Result<()> {
         let input1 = include_str!("../fixtures/run-screenshots.yaml");
-        let ir = Ir::from_yaml_str(input1)?;
+        let ir = Ir::from_yaml_str(input1, "run-screenshots.yaml")?;
         let json = serde_json::to_string_pretty(&ir)?;
         println!("{}", json);
         Ok(())

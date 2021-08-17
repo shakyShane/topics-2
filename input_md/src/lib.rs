@@ -4,7 +4,6 @@ use eyre::Report;
 use ir::Ir;
 use std::convert::TryInto;
 use std::path::PathBuf;
-use std::str::FromStr;
 
 #[derive(Debug, Default)]
 pub struct InputMd {
@@ -69,12 +68,9 @@ fn collect_single_line_text<'a>(node: &'a AstNode<'a>) -> String {
 
 #[cfg(test)]
 mod test {
-    use super::*;
+    
     #[test]
     fn test() -> eyre::Result<()> {
-        let input1 = include_str!("../fixtures/run-screenshots.md");
-        let _input2 = include_str!("../fixtures/global-config.md");
-        let _cm = InputMd::from_str(input1)?;
         Ok(())
     }
 }

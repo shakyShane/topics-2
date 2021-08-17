@@ -1,4 +1,4 @@
-use crate::{IdRef, Ir, IrItem};
+use crate::{Ir, IrItem};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::convert::TryInto;

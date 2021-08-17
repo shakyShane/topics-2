@@ -36,7 +36,7 @@ pub struct Ir {
     pub items: Vec<IrItem>,
 }
 
-#[derive(Debug, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Deserialize, Serialize, TypeScriptify)]
 #[serde(tag = "kind")]
 pub enum IrItem {
     Action(Action),
@@ -55,6 +55,20 @@ pub enum IrItem {
 }
 
 impl IrItem {
+    pub fn set_content(&mut self, content: Vec<IrItem>) {
+        match self {
+            IrItem::Action(action) => action.content = content,
+            IrItem::Instruction(int) => int.content = content,
+            IrItem::Command(cmd) => cmd.content = content,
+            IrItem::Config(cfg) => cfg.content = content,
+            IrItem::Step(step) => step.content = content,
+            IrItem::NamedRefList(nrl) => nrl.content = content,
+            IrItem::DependencyList(dl) => dl.content = content,
+            _ => {
+                // nothing
+            }
+        }
+    }
     pub fn id(&self) -> String {
         match self {
             IrItem::Action(ac) => format!("Action_{}", slug::slugify(&ac.name)),

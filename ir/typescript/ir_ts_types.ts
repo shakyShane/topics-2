@@ -1,4 +1,4 @@
-export type Ir = { items: IrItem [] };
+export type Ir = { ns: string; items: IrItem [] };
 export type IrItem = 
  | { kind: "Action"; fields: Action } 
  | { kind: "Instruction"; fields: Instruction } 
@@ -20,7 +20,7 @@ export type DependencyList = { content: IrItem []; loc: Location | null };
 export type NamedRefList = { content: IrItem []; loc: Location | null };
 export type NamedRef = { name: string; loc: Location | null };
 export type IdRef = { id: string };
-export type Step = { name: string; content: IrItem [] };
+export type Step = { content: IrItem [] };
 export type Command = { name: string; content: IrItem [] };
 export type CommandDefinition = { command: string; params: CommandParams };
 export type CommandConfig = { config: string; params: CommandParams };

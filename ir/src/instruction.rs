@@ -3,9 +3,9 @@ use crate::IrItem;
 use serde::{Deserialize, Serialize};
 use typescript_definitions::TypeScriptify;
 
-#[derive(Debug, Default, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize, TypeScriptify)]
 pub struct Instruction {
     pub name: String,
     loc: Option<Location>,
-    content: Vec<IrItem>,
+    pub(crate) content: Vec<IrItem>,
 }

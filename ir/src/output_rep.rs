@@ -1,4 +1,4 @@
-use crate::{Ir, IrItem};
+use crate::{IdRef, Ir, IrItem};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::convert::TryInto;
@@ -22,7 +22,6 @@ impl TryInto<OutputRep> for Vec<Ir> {
 fn try_into(irs: &[Ir]) -> eyre::Result<OutputRep> {
     let mut output = OutputRep::default();
     for ir in irs {
-        println!("ir ns: {:?}", ir.ns);
         for item in &ir.items {
             let id = item.id();
             visit(&item, id, &mut output);
@@ -41,6 +40,16 @@ fn visit(item: &IrItem, id: String, output: &mut OutputRep) {
             }
             visit(item, item_id, output);
         }
+    }
+    let refs = output.refs.get(&id).expect("guarded above");
+    if !refs.is_empty() {
+        let id_refs = refs
+            .iter()
+            .map(|id| IrItem::IdRef(IdRef { id: id.clone() }))
+            .collect::<Vec<IrItem>>();
+        let mut item_clone = (*item).clone();
+        item_clone.set_content(id_refs);
+        output.items.insert(id, item_clone);
     }
 }
 
@@ -66,6 +75,7 @@ mod test {
         let irs = vec![ir, ir2];
         let output: OutputRep = irs.try_into()?;
         println!("output {:#?}", output);
+        println!("output json {}", serde_json::to_string_pretty(&output)?);
         Ok(())
     }
 

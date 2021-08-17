@@ -1,105 +1,153 @@
 {
-  "items": [
-    {
+  "errors": {},
+  "refs": {
+    "NamedRef___qG54tPcVi2mr9FIe2bfIw": [],
+    "Command_run-the-tests": [
+      "CommandDefinition___LKQh0tXd3-LBINSekGn9j",
+      "CommandConfig___5xt1sz1wjOb_WptqOI857"
+    ],
+    "Action_run-screenshot-tests": [
+      "DependencyList___X160YTG_LVSIos6raUjbu",
+      "Step___WifNPsG-kQ9WOBdk496ET",
+      "Step___gBawJfaio01290q8QQsa9"
+    ],
+    "DependencyList___X160YTG_LVSIos6raUjbu": [
+      "Markdown___ogNAgR8udodtQRzI6Qrz5",
+      "NamedRefList___wd2mEWu2h7LkBuQZR5x7v"
+    ],
+    "Step___gBawJfaio01290q8QQsa9": [
+      "Command_run-the-tests"
+    ],
+    "NamedRef___zFaXOjUG6TYr3O8q55W81": [],
+    "Config_global": [
+      "Markdown___PTUhgywpgkH18CxaY0pBG",
+      "ConfigDefinition___GdvQYQkWig-5Adi-daqyd"
+    ],
+    "CommandDefinition___L5sK-3iDnftSww8yaEK5D": [],
+    "CommandDefinition___LKQh0tXd3-LBINSekGn9j": [],
+    "Command_build-the-images": [
+      "Markdown___KsD1b1v9zNyhpiD4jvmGo",
+      "CommandDefinition___L5sK-3iDnftSww8yaEK5D"
+    ],
+    "Markdown___ogNAgR8udodtQRzI6Qrz5": [],
+    "Markdown___KsD1b1v9zNyhpiD4jvmGo": [],
+    "NamedRefList___wd2mEWu2h7LkBuQZR5x7v": [
+      "NamedRef___qG54tPcVi2mr9FIe2bfIw",
+      "NamedRef___zFaXOjUG6TYr3O8q55W81"
+    ],
+    "ConfigDefinition___GdvQYQkWig-5Adi-daqyd": [],
+    "CommandConfig___5xt1sz1wjOb_WptqOI857": [],
+    "Step___WifNPsG-kQ9WOBdk496ET": [
+      "Command_build-the-images"
+    ],
+    "Markdown___PTUhgywpgkH18CxaY0pBG": []
+  },
+  "items": {
+    "DependencyList___X160YTG_LVSIos6raUjbu": {
+      "kind": "DependencyList",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Markdown___ogNAgR8udodtQRzI6Qrz5"
+        },
+        {
+          "kind": "IdRef",
+          "id": "NamedRefList___wd2mEWu2h7LkBuQZR5x7v"
+        }
+      ],
+      "loc": null
+    },
+    "Step___gBawJfaio01290q8QQsa9": {
+      "kind": "Step",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Command_run-the-tests"
+        }
+      ]
+    },
+    "NamedRefList___wd2mEWu2h7LkBuQZR5x7v": {
+      "kind": "NamedRefList",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "NamedRef___qG54tPcVi2mr9FIe2bfIw"
+        },
+        {
+          "kind": "IdRef",
+          "id": "NamedRef___zFaXOjUG6TYr3O8q55W81"
+        }
+      ],
+      "loc": null
+    },
+    "Command_run-the-tests": {
+      "kind": "Command",
+      "name": "Run the tests",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "CommandDefinition___LKQh0tXd3-LBINSekGn9j"
+        },
+        {
+          "kind": "IdRef",
+          "id": "CommandConfig___5xt1sz1wjOb_WptqOI857"
+        }
+      ]
+    },
+    "Action_run-screenshot-tests": {
       "kind": "Action",
       "name": "Run screenshot tests",
       "content": [
         {
-          "kind": "DependencyList",
-          "content": [
-            {
-              "kind": "Markdown",
-              "content": "Please don't skip the dependencies below - open each link and follow through.",
-              "loc": null
-            },
-            {
-              "kind": "NamedRefList",
-              "content": [
-                {
-                  "kind": "NamedRef",
-                  "name": "Set up machine for Kubernetes",
-                  "loc": null
-                },
-                {
-                  "kind": "NamedRef",
-                  "name": "NPM rc configuration",
-                  "loc": null
-                }
-              ],
-              "loc": null
-            }
-          ],
-          "loc": null
+          "kind": "IdRef",
+          "id": "DependencyList___X160YTG_LVSIos6raUjbu"
         },
         {
-          "kind": "Step",
-          "name": "Build the images",
-          "content": [
-            {
-              "kind": "Command",
-              "name": "Build the images",
-              "content": [
-                {
-                  "kind": "Markdown",
-                  "content": "The screenshot testing process requires at least the following 2 images to be built before they are run.\n\n```\nclient\ndisconnectedlayoutservice\n```\n\nYou can build these with the following command\n",
-                  "loc": null
-                },
-                {
-                  "kind": "CommandDefinition",
-                  "command": "skaffold build -b client -b screenshots",
-                  "params": {
-                    "language": "shell"
-                  }
-                }
-              ]
-            }
-          ]
+          "kind": "IdRef",
+          "id": "Step___WifNPsG-kQ9WOBdk496ET"
         },
         {
-          "kind": "Step",
-          "name": "Run the tests",
-          "content": [
-            {
-              "kind": "Command",
-              "name": "Run the tests",
-              "content": [
-                {
-                  "kind": "CommandDefinition",
-                  "command": "skaffold build -b \"client\" -b \"screenshots\"",
-                  "params": {
-                    "language": "shell"
-                  }
-                },
-                {
-                  "kind": "CommandConfig",
-                  "config": "cwd = { valueFrom = \"config\", name = \"Global\", path = \"paths.client\" }",
-                  "params": {
-                    "language": "toml"
-                  }
-                }
-              ]
-            }
-          ]
+          "kind": "IdRef",
+          "id": "Step___gBawJfaio01290q8QQsa9"
         }
       ]
     },
-    {
+    "Step___WifNPsG-kQ9WOBdk496ET": {
+      "kind": "Step",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Command_build-the-images"
+        }
+      ]
+    },
+    "Config_global": {
       "kind": "Config",
       "name": "Global",
       "content": [
         {
-          "kind": "Markdown",
-          "content": "This is available from any document",
-          "loc": null
+          "kind": "IdRef",
+          "id": "Markdown___PTUhgywpgkH18CxaY0pBG"
         },
         {
-          "kind": "ConfigDefinition",
-          "params": {
-            "language": "yaml"
-          },
-          "config": "paths:\n  client: containers/www/client"
+          "kind": "IdRef",
+          "id": "ConfigDefinition___GdvQYQkWig-5Adi-daqyd"
+        }
+      ]
+    },
+    "Command_build-the-images": {
+      "kind": "Command",
+      "name": "Build the images",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Markdown___KsD1b1v9zNyhpiD4jvmGo"
+        },
+        {
+          "kind": "IdRef",
+          "id": "CommandDefinition___L5sK-3iDnftSww8yaEK5D"
         }
       ]
     }
-  ]
+  }
 }

@@ -57,19 +57,19 @@ pub enum IrItem {
 impl IrItem {
     pub fn id(&self) -> String {
         match self {
-            IrItem::Action(ac) => slug::slugify(&ac.name),
-            IrItem::Instruction(ins) => slug::slugify(&ins.name),
-            IrItem::Markdown(_) => format!("Markdown_{}", nanoid::nanoid!()),
-            IrItem::DependencyList(_dl) => format!("DependencyList_{}", nanoid::nanoid!()),
-            IrItem::NamedRefList(_) => format!("NamedRefList_{}", nanoid::nanoid!()),
-            IrItem::NamedRef(_) => format!("NamedRef_{}", nanoid::nanoid!()),
-            IrItem::IdRef(_) => format!("IdRef_{}", nanoid::nanoid!()),
-            IrItem::Step(_step) => format!("Step_{}", nanoid::nanoid!()),
-            IrItem::Command(cmd) => slug::slugify(&cmd.name),
-            IrItem::CommandDefinition(_) => format!("CommandDefinition_{}", nanoid::nanoid!()),
-            IrItem::CommandConfig(_) => format!("CommandConfig_{}", nanoid::nanoid!()),
-            IrItem::Config(cfg) => slug::slugify(&cfg.name),
-            IrItem::ConfigDefinition(_) => format!("ConfigDefinition_{}", nanoid::nanoid!()),
+            IrItem::Action(ac) => format!("Action_{}", slug::slugify(&ac.name)),
+            IrItem::Instruction(ins) => format!("Instruction_{}", slug::slugify(&ins.name)),
+            IrItem::Markdown(_) => format!("Markdown___{}", nanoid::nanoid!()),
+            IrItem::DependencyList(_dl) => format!("DependencyList___{}", nanoid::nanoid!()),
+            IrItem::NamedRefList(_) => format!("NamedRefList___{}", nanoid::nanoid!()),
+            IrItem::NamedRef(_) => format!("NamedRef___{}", nanoid::nanoid!()),
+            IrItem::IdRef(_) => format!("IdRef___{}", nanoid::nanoid!()),
+            IrItem::Step(_step) => format!("Step___{}", nanoid::nanoid!()),
+            IrItem::Command(cmd) => format!("Command_{}", slug::slugify(&cmd.name)),
+            IrItem::CommandDefinition(_) => format!("CommandDefinition___{}", nanoid::nanoid!()),
+            IrItem::CommandConfig(_) => format!("CommandConfig___{}", nanoid::nanoid!()),
+            IrItem::Config(cfg) => format!("Config_{}", slug::slugify(&cfg.name)),
+            IrItem::ConfigDefinition(_) => format!("ConfigDefinition___{}", nanoid::nanoid!()),
         }
     }
     pub fn children(&self) -> Option<&Vec<IrItem>> {

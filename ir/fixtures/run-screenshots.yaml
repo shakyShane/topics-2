@@ -8,9 +8,9 @@ content:
       - kind: NamedRefList
         content:
           - kind: NamedRef
-            name: Set up machine for Kubernetes
+            name: "Action: Set up machine for Kubernetes"
           - kind: NamedRef
-            name: NPM rc configuration
+            name: "Action: NPM rc configuration"
   - kind: Step
     content:
       - kind: Command

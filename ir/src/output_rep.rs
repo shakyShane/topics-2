@@ -28,8 +28,7 @@ fn try_into(irs: &[Ir]) -> eyre::Result<OutputRep> {
             visit(&item, id, &mut output);
         }
     }
-    println!("refs = {:#?}", output.refs);
-    Ok(Default::default())
+    Ok(output)
 }
 
 fn visit(item: &IrItem, id: String, output: &mut OutputRep) {

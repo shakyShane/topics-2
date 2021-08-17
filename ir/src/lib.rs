@@ -78,7 +78,7 @@ impl IrItem {
             IrItem::Instruction(_) => None,
             IrItem::Markdown(_) => None,
             IrItem::DependencyList(dl) => Some(&dl.content),
-            IrItem::NamedRefList(_) => None,
+            IrItem::NamedRefList(nrl) => Some(&nrl.content),
             IrItem::NamedRef(_) => None,
             IrItem::IdRef(_) => None,
             IrItem::Step(step) => Some(&step.content),

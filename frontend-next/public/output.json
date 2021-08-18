@@ -1,137 +1,63 @@
 {
   "errors": {},
   "refs": {
-    "NamedRef___qG54tPcVi2mr9FIe2bfIw": [],
-    "Command_run-the-tests": [
-      "CommandDefinition___LKQh0tXd3-LBINSekGn9j",
-      "CommandConfig___5xt1sz1wjOb_WptqOI857"
-    ],
     "Action_run-screenshot-tests": [
-      "DependencyList___X160YTG_LVSIos6raUjbu",
-      "Step___WifNPsG-kQ9WOBdk496ET",
-      "Step___gBawJfaio01290q8QQsa9"
+      "DependencyList___ErAWHCbgcPRqaME4qMX4E",
+      "Step___Pf26DWQwYmC1AvtOJ6sKz",
+      "Step___vpxX_VpvKEhd3dDPE4vEC"
     ],
-    "DependencyList___X160YTG_LVSIos6raUjbu": [
-      "Markdown___ogNAgR8udodtQRzI6Qrz5",
-      "NamedRefList___wd2mEWu2h7LkBuQZR5x7v"
-    ],
-    "Step___gBawJfaio01290q8QQsa9": [
-      "Command_run-the-tests"
-    ],
-    "NamedRef___zFaXOjUG6TYr3O8q55W81": [],
-    "Config_global": [
-      "Markdown___PTUhgywpgkH18CxaY0pBG",
-      "ConfigDefinition___GdvQYQkWig-5Adi-daqyd"
-    ],
-    "CommandDefinition___L5sK-3iDnftSww8yaEK5D": [],
-    "CommandDefinition___LKQh0tXd3-LBINSekGn9j": [],
+    "CommandConfig___KOa45NmwB0neEC4-nZOTG": [],
+    "CommandDefinition___8rWGexeRIiRbMxCaFj5Pl": [],
+    "CommandDefinition___yyyNFYOL-qTrr5ZViCtB2": [],
     "Command_build-the-images": [
-      "Markdown___KsD1b1v9zNyhpiD4jvmGo",
-      "CommandDefinition___L5sK-3iDnftSww8yaEK5D"
+      "Markdown___tGoaTUdY_aSMa0QuXTpEL",
+      "CommandDefinition___yyyNFYOL-qTrr5ZViCtB2"
     ],
-    "Markdown___ogNAgR8udodtQRzI6Qrz5": [],
-    "Markdown___KsD1b1v9zNyhpiD4jvmGo": [],
-    "NamedRefList___wd2mEWu2h7LkBuQZR5x7v": [
-      "NamedRef___qG54tPcVi2mr9FIe2bfIw",
-      "NamedRef___zFaXOjUG6TYr3O8q55W81"
+    "Command_run-the-tests": [
+      "CommandDefinition___8rWGexeRIiRbMxCaFj5Pl",
+      "CommandConfig___KOa45NmwB0neEC4-nZOTG"
     ],
-    "ConfigDefinition___GdvQYQkWig-5Adi-daqyd": [],
-    "CommandConfig___5xt1sz1wjOb_WptqOI857": [],
-    "Step___WifNPsG-kQ9WOBdk496ET": [
+    "ConfigDefinition___gXZJcASl21jzHXLN_rcgj": [],
+    "Config_global": [
+      "Markdown___Vf9czT3liJdCGaYWZAQFE",
+      "ConfigDefinition___gXZJcASl21jzHXLN_rcgj"
+    ],
+    "DependencyList___ErAWHCbgcPRqaME4qMX4E": [
+      "Markdown___IAVaysJuobQIAcduS2cDL",
+      "NamedRefList___MbvLzqvptB7R9O6MKq-JA"
+    ],
+    "Markdown___IAVaysJuobQIAcduS2cDL": [],
+    "Markdown___Vf9czT3liJdCGaYWZAQFE": [],
+    "Markdown___tGoaTUdY_aSMa0QuXTpEL": [],
+    "NamedRefList___MbvLzqvptB7R9O6MKq-JA": [
+      "NamedRef___HZT7BmdKPWrNmNf8DX9Ic",
+      "NamedRef___wSTTC2Zre_TlYSP34-A6J"
+    ],
+    "NamedRef___HZT7BmdKPWrNmNf8DX9Ic": [],
+    "NamedRef___wSTTC2Zre_TlYSP34-A6J": [],
+    "Step___Pf26DWQwYmC1AvtOJ6sKz": [
       "Command_build-the-images"
     ],
-    "Markdown___PTUhgywpgkH18CxaY0pBG": []
+    "Step___vpxX_VpvKEhd3dDPE4vEC": [
+      "Command_run-the-tests"
+    ]
   },
   "items": {
-    "DependencyList___X160YTG_LVSIos6raUjbu": {
-      "kind": "DependencyList",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Markdown___ogNAgR8udodtQRzI6Qrz5"
-        },
-        {
-          "kind": "IdRef",
-          "id": "NamedRefList___wd2mEWu2h7LkBuQZR5x7v"
-        }
-      ],
-      "loc": null
-    },
-    "Step___gBawJfaio01290q8QQsa9": {
-      "kind": "Step",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Command_run-the-tests"
-        }
-      ]
-    },
-    "NamedRefList___wd2mEWu2h7LkBuQZR5x7v": {
-      "kind": "NamedRefList",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "NamedRef___qG54tPcVi2mr9FIe2bfIw"
-        },
-        {
-          "kind": "IdRef",
-          "id": "NamedRef___zFaXOjUG6TYr3O8q55W81"
-        }
-      ],
-      "loc": null
-    },
-    "Command_run-the-tests": {
-      "kind": "Command",
-      "name": "Run the tests",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "CommandDefinition___LKQh0tXd3-LBINSekGn9j"
-        },
-        {
-          "kind": "IdRef",
-          "id": "CommandConfig___5xt1sz1wjOb_WptqOI857"
-        }
-      ]
-    },
     "Action_run-screenshot-tests": {
       "kind": "Action",
       "name": "Run screenshot tests",
       "content": [
         {
           "kind": "IdRef",
-          "id": "DependencyList___X160YTG_LVSIos6raUjbu"
+          "id": "DependencyList___ErAWHCbgcPRqaME4qMX4E"
         },
         {
           "kind": "IdRef",
-          "id": "Step___WifNPsG-kQ9WOBdk496ET"
+          "id": "Step___Pf26DWQwYmC1AvtOJ6sKz"
         },
         {
           "kind": "IdRef",
-          "id": "Step___gBawJfaio01290q8QQsa9"
-        }
-      ]
-    },
-    "Step___WifNPsG-kQ9WOBdk496ET": {
-      "kind": "Step",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Command_build-the-images"
-        }
-      ]
-    },
-    "Config_global": {
-      "kind": "Config",
-      "name": "Global",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Markdown___PTUhgywpgkH18CxaY0pBG"
-        },
-        {
-          "kind": "IdRef",
-          "id": "ConfigDefinition___GdvQYQkWig-5Adi-daqyd"
+          "id": "Step___vpxX_VpvKEhd3dDPE4vEC"
         }
       ]
     },
@@ -141,11 +67,85 @@
       "content": [
         {
           "kind": "IdRef",
-          "id": "Markdown___KsD1b1v9zNyhpiD4jvmGo"
+          "id": "Markdown___tGoaTUdY_aSMa0QuXTpEL"
         },
         {
           "kind": "IdRef",
-          "id": "CommandDefinition___L5sK-3iDnftSww8yaEK5D"
+          "id": "CommandDefinition___yyyNFYOL-qTrr5ZViCtB2"
+        }
+      ]
+    },
+    "Command_run-the-tests": {
+      "kind": "Command",
+      "name": "Run the tests",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "CommandDefinition___8rWGexeRIiRbMxCaFj5Pl"
+        },
+        {
+          "kind": "IdRef",
+          "id": "CommandConfig___KOa45NmwB0neEC4-nZOTG"
+        }
+      ]
+    },
+    "Config_global": {
+      "kind": "Config",
+      "name": "Global",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Markdown___Vf9czT3liJdCGaYWZAQFE"
+        },
+        {
+          "kind": "IdRef",
+          "id": "ConfigDefinition___gXZJcASl21jzHXLN_rcgj"
+        }
+      ]
+    },
+    "DependencyList___ErAWHCbgcPRqaME4qMX4E": {
+      "kind": "DependencyList",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Markdown___IAVaysJuobQIAcduS2cDL"
+        },
+        {
+          "kind": "IdRef",
+          "id": "NamedRefList___MbvLzqvptB7R9O6MKq-JA"
+        }
+      ],
+      "loc": null
+    },
+    "NamedRefList___MbvLzqvptB7R9O6MKq-JA": {
+      "kind": "NamedRefList",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "NamedRef___HZT7BmdKPWrNmNf8DX9Ic"
+        },
+        {
+          "kind": "IdRef",
+          "id": "NamedRef___wSTTC2Zre_TlYSP34-A6J"
+        }
+      ],
+      "loc": null
+    },
+    "Step___Pf26DWQwYmC1AvtOJ6sKz": {
+      "kind": "Step",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Command_build-the-images"
+        }
+      ]
+    },
+    "Step___vpxX_VpvKEhd3dDPE4vEC": {
+      "kind": "Step",
+      "content": [
+        {
+          "kind": "IdRef",
+          "id": "Command_run-the-tests"
         }
       ]
     }

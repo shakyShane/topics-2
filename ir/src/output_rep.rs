@@ -1,14 +1,14 @@
 use crate::{IdRef, Ir, IrItem};
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::convert::TryInto;
 use typescript_definitions::TypeScriptify;
 
 #[derive(Debug, Default, Serialize, Deserialize, TypeScriptify)]
 pub struct OutputRep {
-    errors: HashMap<String, Vec<ErrorRep>>,
-    refs: HashMap<String, Vec<String>>,
-    items: HashMap<String, IrItem>,
+    errors: BTreeMap<String, Vec<ErrorRep>>,
+    refs: BTreeMap<String, Vec<String>>,
+    items: BTreeMap<String, IrItem>,
 }
 
 impl TryInto<OutputRep> for Vec<Ir> {

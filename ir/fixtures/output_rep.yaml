@@ -16,45 +16,54 @@ refs:
 items:
   id_01:
     kind: Command
-    name: Build the images
-    content:
-      - { kind: IdRef, id: id_05 }
-      - { kind: IdRef, id: id_06 }
+    fields:
+      name: Build the images
+      content:
+        - { kind: IdRef, fields: { id: id_05 } }
+        - { kind: IdRef, fields: { id: id_06 } }
   id_02:
     kind: DependencyList
-    content:
-      - { kind: IdRef, id: id_04 }
+    fields:
+      content:
+        - { kind: IdRef, fields: { id: id_04 } }
   id_00002:
     kind: Step
-    name: "Build the images"
-    content:
-      - { kind: IdRef, id: id_01 }
+    fields:
+      name: "Build the images"
+      content:
+        - { kind: IdRef, fields: { id: id_01 } }
   id_03:
     kind: Markdown
-    content: Please don't skip the dependencies below - open each link and follow through.
+    fields:
+      content: Please don't skip the dependencies below - open each link and follow through.
   id_04:
     kind: NamedRefList
-    content:
-      - { kind: IdRef, id: id_02 }
+    fields:
+      content:
+        - { kind: IdRef, fields: { id: id_02 } }
   id_05:
     kind: Markdown
-    content: |
-      The screenshot testing process requires at least the following 2 images to be built before they are run.
+    fields:
+      content: |
+        The screenshot testing process requires at least the following 2 images to be built before they are run.
 
-      ```
-      client
-      disconnectedlayoutservice
-      ```
+        ```
+        client
+        disconnectedlayoutservice
+        ```
 
-      You can build these with the following command
+        You can build these with the following command
   id_06:
     kind: CommandDefinition
-    params:
-      language: shell
-    command: skaffold build -b client -b screenshots
+    fields:
+      params:
+        language: shell
+      command: skaffold build -b client -b screenshots
   id_07:
     kind: NamedRef
-    name: Set up machine for Kubernetes
+    fields:
+      name: Set up machine for Kubernetes
   id_08:
     kind: NamedRef
-    name: NPM rc configuration
+    fields:
+      name: NPM rc configuration

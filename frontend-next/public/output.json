@@ -45,162 +45,226 @@
   "items": {
     "Action---run-screenshot-tests": {
       "kind": "Action",
-      "name": "Run screenshot tests",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "DependencyList___7980941460073090388"
-        },
-        {
-          "kind": "IdRef",
-          "id": "Step___14517732627568087162"
-        },
-        {
-          "kind": "IdRef",
-          "id": "Step___2204267961231512607"
-        }
-      ]
+      "fields": {
+        "name": "Run screenshot tests",
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "DependencyList___7980941460073090388"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Step___14517732627568087162"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Step___2204267961231512607"
+            }
+          }
+        ]
+      }
     },
     "Command---build-the-images": {
       "kind": "Command",
-      "name": "Build the images",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Markdown___5824959792421754041"
-        },
-        {
-          "kind": "IdRef",
-          "id": "CommandDefinition___2214668926304073308"
-        }
-      ]
+      "fields": {
+        "name": "Build the images",
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Markdown___5824959792421754041"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "CommandDefinition___2214668926304073308"
+            }
+          }
+        ]
+      }
     },
     "Command---run-the-tests": {
       "kind": "Command",
-      "name": "Run the tests",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "CommandDefinition___6226044037007141765"
-        },
-        {
-          "kind": "IdRef",
-          "id": "CommandConfig___4334309368341061081"
-        }
-      ]
+      "fields": {
+        "name": "Run the tests",
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "CommandDefinition___6226044037007141765"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "CommandConfig___4334309368341061081"
+            }
+          }
+        ]
+      }
     },
     "CommandConfig___4334309368341061081": {
       "kind": "CommandConfig",
-      "config": "cwd = { valueFrom = \"config\", name = \"Global\", path = \"paths.client\" }",
-      "params": {
-        "language": "toml"
+      "fields": {
+        "config": "cwd = { valueFrom = \"config\", name = \"Global\", path = \"paths.client\" }",
+        "params": {
+          "language": "toml"
+        }
       }
     },
     "CommandDefinition___2214668926304073308": {
       "kind": "CommandDefinition",
-      "command": "skaffold build -b client -b screenshots",
-      "params": {
-        "language": "shell"
+      "fields": {
+        "command": "skaffold build -b client -b screenshots",
+        "params": {
+          "language": "shell"
+        }
       }
     },
     "CommandDefinition___6226044037007141765": {
       "kind": "CommandDefinition",
-      "command": "skaffold build -b \"client\" -b \"screenshots\"",
-      "params": {
-        "language": "shell"
+      "fields": {
+        "command": "skaffold build -b \"client\" -b \"screenshots\"",
+        "params": {
+          "language": "shell"
+        }
       }
     },
     "Config---global": {
       "kind": "Config",
-      "name": "Global",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Markdown___3526929940352923117"
-        },
-        {
-          "kind": "IdRef",
-          "id": "ConfigDefinition___3324697286130840554"
-        }
-      ]
+      "fields": {
+        "name": "Global",
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Markdown___3526929940352923117"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "ConfigDefinition___3324697286130840554"
+            }
+          }
+        ]
+      }
     },
     "ConfigDefinition___3324697286130840554": {
       "kind": "ConfigDefinition",
-      "params": {
-        "language": "yaml"
-      },
-      "config": "paths:\n  client: containers/www/client"
+      "fields": {
+        "params": {
+          "language": "yaml"
+        },
+        "config": "paths:\n  client: containers/www/client"
+      }
     },
     "DependencyList___7980941460073090388": {
       "kind": "DependencyList",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Markdown___9157757297505384306"
-        },
-        {
-          "kind": "IdRef",
-          "id": "NamedRefList___51334235380427582"
-        }
-      ],
-      "loc": null
+      "fields": {
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Markdown___9157757297505384306"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "NamedRefList___51334235380427582"
+            }
+          }
+        ],
+        "loc": null
+      }
     },
     "Markdown___3526929940352923117": {
       "kind": "Markdown",
-      "content": "This is available from any document",
-      "loc": null
+      "fields": {
+        "content": "This is available from any document",
+        "loc": null
+      }
     },
     "Markdown___5824959792421754041": {
       "kind": "Markdown",
-      "content": "The screenshot testing process requires at least the following 2 images to be built before they are run.\n\n```\nclient\ndisconnectedlayoutservice\n```\n\nYou can build these with the following command\n",
-      "loc": null
+      "fields": {
+        "content": "The screenshot testing process requires at least the following 2 images to be built before they are run.\n\n```\nclient\ndisconnectedlayoutservice\n```\n\nYou can build these with the following command\n",
+        "loc": null
+      }
     },
     "Markdown___9157757297505384306": {
       "kind": "Markdown",
-      "content": "Please don't skip the dependencies below - open each link and follow through.",
-      "loc": null
+      "fields": {
+        "content": "Please don't skip the dependencies below - open each link and follow through.",
+        "loc": null
+      }
     },
     "NamedRefList___51334235380427582": {
       "kind": "NamedRefList",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "NamedRef___4179407418329276385"
-        },
-        {
-          "kind": "IdRef",
-          "id": "NamedRef___20453710653391294"
-        }
-      ],
-      "loc": null
+      "fields": {
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "NamedRef___4179407418329276385"
+            }
+          },
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "NamedRef___20453710653391294"
+            }
+          }
+        ],
+        "loc": null
+      }
     },
     "NamedRef___20453710653391294": {
       "kind": "NamedRef",
-      "name": "Action: NPM rc configuration",
-      "loc": null
+      "fields": {
+        "name": "Action: NPM rc configuration",
+        "loc": null
+      }
     },
     "NamedRef___4179407418329276385": {
       "kind": "NamedRef",
-      "name": "Action: Set up machine for Kubernetes",
-      "loc": null
+      "fields": {
+        "name": "Action: Set up machine for Kubernetes",
+        "loc": null
+      }
     },
     "Step___14517732627568087162": {
       "kind": "Step",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Command---build-the-images"
-        }
-      ]
+      "fields": {
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Command---build-the-images"
+            }
+          }
+        ]
+      }
     },
     "Step___2204267961231512607": {
       "kind": "Step",
-      "content": [
-        {
-          "kind": "IdRef",
-          "id": "Command---run-the-tests"
-        }
-      ]
+      "fields": {
+        "content": [
+          {
+            "kind": "IdRef",
+            "fields": {
+              "id": "Command---run-the-tests"
+            }
+          }
+        ]
+      }
     }
   }
 }

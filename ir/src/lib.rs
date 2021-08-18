@@ -38,7 +38,7 @@ pub struct Ir {
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize, PartialEq, Eq, Hash, TypeScriptify)]
-#[serde(tag = "kind")]
+#[serde(tag = "kind", content = "fields")]
 pub enum IrItem {
     Action(Action),
     Instruction(Instruction),

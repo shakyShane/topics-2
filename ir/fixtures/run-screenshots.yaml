@@ -1,45 +1,59 @@
 kind: Action
-name: Run screenshot tests
-content:
-  - kind: DependencyList
-    content:
-      - kind: Markdown
-        content: Please don't skip the dependencies below - open each link and follow through.
-      - kind: NamedRefList
-        content:
-          - kind: NamedRef
-            name: "Action: Set up machine for Kubernetes"
-          - kind: NamedRef
-            name: "Action: NPM rc configuration"
-  - kind: Step
-    content:
-      - kind: Command
-        name: Build the images
+fields:
+  name: Run screenshot tests
+  content:
+    - kind: DependencyList
+      fields:
         content:
           - kind: Markdown
-            content: |
-              The screenshot testing process requires at least the following 2 images to be built before they are run.
-
-              ```
-              client
-              disconnectedlayoutservice
-              ```
-
-              You can build these with the following command
-          - kind: CommandDefinition
-            params:
-              language: shell
-            command: skaffold build -b client -b screenshots
-  - kind: Step
-    content:
-      - kind: Command
-        name: Run the tests
+            fields:
+              content: Please don't skip the dependencies below - open each link and follow through.
+          - kind: NamedRefList
+            fields:
+              content:
+                - kind: NamedRef
+                  fields:
+                    name: "Action: Set up machine for Kubernetes"
+                - kind: NamedRef
+                  fields:
+                    name: "Action: NPM rc configuration"
+    - kind: Step
+      fields:
         content:
-          - kind: CommandDefinition
-            params:
-              language: shell
-            command: skaffold build -b "client" -b "screenshots"
-          - kind: CommandConfig
-            params:
-              language: toml
-            config: cwd = { valueFrom = "config", name = "Global", path = "paths.client" }
+          - kind: Command
+            fields:
+              name: Build the images
+              content:
+                - kind: Markdown
+                  fields:
+                    content: |
+                      The screenshot testing process requires at least the following 2 images to be built before they are run.
+
+                      ```
+                      client
+                      disconnectedlayoutservice
+                      ```
+
+                      You can build these with the following command
+                - kind: CommandDefinition
+                  fields:
+                    params:
+                      language: shell
+                    command: skaffold build -b client -b screenshots
+    - kind: Step
+      fields:
+        content:
+          - kind: Command
+            fields:
+              name: Run the tests
+              content:
+                - kind: CommandDefinition
+                  fields:
+                    params:
+                      language: shell
+                    command: skaffold build -b "client" -b "screenshots"
+                - kind: CommandConfig
+                  fields:
+                    params:
+                      language: toml
+                    config: cwd = { valueFrom = "config", name = "Global", path = "paths.client" }

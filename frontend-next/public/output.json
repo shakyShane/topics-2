@@ -89,6 +89,27 @@
         }
       ]
     },
+    "CommandConfig___4334309368341061081": {
+      "kind": "CommandConfig",
+      "config": "cwd = { valueFrom = \"config\", name = \"Global\", path = \"paths.client\" }",
+      "params": {
+        "language": "toml"
+      }
+    },
+    "CommandDefinition___2214668926304073308": {
+      "kind": "CommandDefinition",
+      "command": "skaffold build -b client -b screenshots",
+      "params": {
+        "language": "shell"
+      }
+    },
+    "CommandDefinition___6226044037007141765": {
+      "kind": "CommandDefinition",
+      "command": "skaffold build -b \"client\" -b \"screenshots\"",
+      "params": {
+        "language": "shell"
+      }
+    },
     "Config---global": {
       "kind": "Config",
       "name": "Global",
@@ -102,6 +123,13 @@
           "id": "ConfigDefinition___3324697286130840554"
         }
       ]
+    },
+    "ConfigDefinition___3324697286130840554": {
+      "kind": "ConfigDefinition",
+      "params": {
+        "language": "yaml"
+      },
+      "config": "paths:\n  client: containers/www/client"
     },
     "DependencyList___7980941460073090388": {
       "kind": "DependencyList",
@@ -117,6 +145,21 @@
       ],
       "loc": null
     },
+    "Markdown___3526929940352923117": {
+      "kind": "Markdown",
+      "content": "This is available from any document",
+      "loc": null
+    },
+    "Markdown___5824959792421754041": {
+      "kind": "Markdown",
+      "content": "The screenshot testing process requires at least the following 2 images to be built before they are run.\n\n```\nclient\ndisconnectedlayoutservice\n```\n\nYou can build these with the following command\n",
+      "loc": null
+    },
+    "Markdown___9157757297505384306": {
+      "kind": "Markdown",
+      "content": "Please don't skip the dependencies below - open each link and follow through.",
+      "loc": null
+    },
     "NamedRefList___51334235380427582": {
       "kind": "NamedRefList",
       "content": [
@@ -129,6 +172,16 @@
           "id": "NamedRef___20453710653391294"
         }
       ],
+      "loc": null
+    },
+    "NamedRef___20453710653391294": {
+      "kind": "NamedRef",
+      "name": "Action: NPM rc configuration",
+      "loc": null
+    },
+    "NamedRef___4179407418329276385": {
+      "kind": "NamedRef",
+      "name": "Action: Set up machine for Kubernetes",
       "loc": null
     },
     "Step___14517732627568087162": {

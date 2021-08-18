@@ -1,6 +1,6 @@
 use crate::{IdRef, Ir, IrItem};
 use serde::{Deserialize, Serialize};
-use std::collections::{BTreeMap};
+use std::collections::BTreeMap;
 use std::convert::TryInto;
 use typescript_definitions::TypeScriptify;
 
@@ -41,16 +41,16 @@ fn visit(item: &IrItem, id: String, output: &mut OutputRep) {
             visit(item, item_id, output);
         }
     }
+    let mut item_clone = (*item).clone();
     let refs = output.refs.get(&id).expect("guarded above");
     if !refs.is_empty() {
         let id_refs = refs
             .iter()
             .map(|id| IrItem::IdRef(IdRef { id: id.clone() }))
             .collect::<Vec<IrItem>>();
-        let mut item_clone = (*item).clone();
         item_clone.set_content(id_refs);
-        output.items.insert(id, item_clone);
     }
+    output.items.insert(id, item_clone);
 }
 
 #[derive(thiserror::Error, Debug, Serialize, Deserialize, TypeScriptify)]

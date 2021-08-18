@@ -1,151 +1,151 @@
 {
   "errors": {},
   "refs": {
-    "Action_run-screenshot-tests": [
-      "DependencyList___ErAWHCbgcPRqaME4qMX4E",
-      "Step___Pf26DWQwYmC1AvtOJ6sKz",
-      "Step___vpxX_VpvKEhd3dDPE4vEC"
+    "Action---run-screenshot-tests": [
+      "DependencyList___7980941460073090388",
+      "Step___14517732627568087162",
+      "Step___2204267961231512607"
     ],
-    "CommandConfig___KOa45NmwB0neEC4-nZOTG": [],
-    "CommandDefinition___8rWGexeRIiRbMxCaFj5Pl": [],
-    "CommandDefinition___yyyNFYOL-qTrr5ZViCtB2": [],
-    "Command_build-the-images": [
-      "Markdown___tGoaTUdY_aSMa0QuXTpEL",
-      "CommandDefinition___yyyNFYOL-qTrr5ZViCtB2"
+    "Command---build-the-images": [
+      "Markdown___5824959792421754041",
+      "CommandDefinition___2214668926304073308"
     ],
-    "Command_run-the-tests": [
-      "CommandDefinition___8rWGexeRIiRbMxCaFj5Pl",
-      "CommandConfig___KOa45NmwB0neEC4-nZOTG"
+    "Command---run-the-tests": [
+      "CommandDefinition___6226044037007141765",
+      "CommandConfig___4334309368341061081"
     ],
-    "ConfigDefinition___gXZJcASl21jzHXLN_rcgj": [],
-    "Config_global": [
-      "Markdown___Vf9czT3liJdCGaYWZAQFE",
-      "ConfigDefinition___gXZJcASl21jzHXLN_rcgj"
+    "CommandConfig___4334309368341061081": [],
+    "CommandDefinition___2214668926304073308": [],
+    "CommandDefinition___6226044037007141765": [],
+    "Config---global": [
+      "Markdown___3526929940352923117",
+      "ConfigDefinition___3324697286130840554"
     ],
-    "DependencyList___ErAWHCbgcPRqaME4qMX4E": [
-      "Markdown___IAVaysJuobQIAcduS2cDL",
-      "NamedRefList___MbvLzqvptB7R9O6MKq-JA"
+    "ConfigDefinition___3324697286130840554": [],
+    "DependencyList___7980941460073090388": [
+      "Markdown___9157757297505384306",
+      "NamedRefList___51334235380427582"
     ],
-    "Markdown___IAVaysJuobQIAcduS2cDL": [],
-    "Markdown___Vf9czT3liJdCGaYWZAQFE": [],
-    "Markdown___tGoaTUdY_aSMa0QuXTpEL": [],
-    "NamedRefList___MbvLzqvptB7R9O6MKq-JA": [
-      "NamedRef___HZT7BmdKPWrNmNf8DX9Ic",
-      "NamedRef___wSTTC2Zre_TlYSP34-A6J"
+    "Markdown___3526929940352923117": [],
+    "Markdown___5824959792421754041": [],
+    "Markdown___9157757297505384306": [],
+    "NamedRefList___51334235380427582": [
+      "NamedRef___4179407418329276385",
+      "NamedRef___20453710653391294"
     ],
-    "NamedRef___HZT7BmdKPWrNmNf8DX9Ic": [],
-    "NamedRef___wSTTC2Zre_TlYSP34-A6J": [],
-    "Step___Pf26DWQwYmC1AvtOJ6sKz": [
-      "Command_build-the-images"
+    "NamedRef___20453710653391294": [],
+    "NamedRef___4179407418329276385": [],
+    "Step___14517732627568087162": [
+      "Command---build-the-images"
     ],
-    "Step___vpxX_VpvKEhd3dDPE4vEC": [
-      "Command_run-the-tests"
+    "Step___2204267961231512607": [
+      "Command---run-the-tests"
     ]
   },
   "items": {
-    "Action_run-screenshot-tests": {
+    "Action---run-screenshot-tests": {
       "kind": "Action",
       "name": "Run screenshot tests",
       "content": [
         {
           "kind": "IdRef",
-          "id": "DependencyList___ErAWHCbgcPRqaME4qMX4E"
+          "id": "DependencyList___7980941460073090388"
         },
         {
           "kind": "IdRef",
-          "id": "Step___Pf26DWQwYmC1AvtOJ6sKz"
+          "id": "Step___14517732627568087162"
         },
         {
           "kind": "IdRef",
-          "id": "Step___vpxX_VpvKEhd3dDPE4vEC"
+          "id": "Step___2204267961231512607"
         }
       ]
     },
-    "Command_build-the-images": {
+    "Command---build-the-images": {
       "kind": "Command",
       "name": "Build the images",
       "content": [
         {
           "kind": "IdRef",
-          "id": "Markdown___tGoaTUdY_aSMa0QuXTpEL"
+          "id": "Markdown___5824959792421754041"
         },
         {
           "kind": "IdRef",
-          "id": "CommandDefinition___yyyNFYOL-qTrr5ZViCtB2"
+          "id": "CommandDefinition___2214668926304073308"
         }
       ]
     },
-    "Command_run-the-tests": {
+    "Command---run-the-tests": {
       "kind": "Command",
       "name": "Run the tests",
       "content": [
         {
           "kind": "IdRef",
-          "id": "CommandDefinition___8rWGexeRIiRbMxCaFj5Pl"
+          "id": "CommandDefinition___6226044037007141765"
         },
         {
           "kind": "IdRef",
-          "id": "CommandConfig___KOa45NmwB0neEC4-nZOTG"
+          "id": "CommandConfig___4334309368341061081"
         }
       ]
     },
-    "Config_global": {
+    "Config---global": {
       "kind": "Config",
       "name": "Global",
       "content": [
         {
           "kind": "IdRef",
-          "id": "Markdown___Vf9czT3liJdCGaYWZAQFE"
+          "id": "Markdown___3526929940352923117"
         },
         {
           "kind": "IdRef",
-          "id": "ConfigDefinition___gXZJcASl21jzHXLN_rcgj"
+          "id": "ConfigDefinition___3324697286130840554"
         }
       ]
     },
-    "DependencyList___ErAWHCbgcPRqaME4qMX4E": {
+    "DependencyList___7980941460073090388": {
       "kind": "DependencyList",
       "content": [
         {
           "kind": "IdRef",
-          "id": "Markdown___IAVaysJuobQIAcduS2cDL"
+          "id": "Markdown___9157757297505384306"
         },
         {
           "kind": "IdRef",
-          "id": "NamedRefList___MbvLzqvptB7R9O6MKq-JA"
+          "id": "NamedRefList___51334235380427582"
         }
       ],
       "loc": null
     },
-    "NamedRefList___MbvLzqvptB7R9O6MKq-JA": {
+    "NamedRefList___51334235380427582": {
       "kind": "NamedRefList",
       "content": [
         {
           "kind": "IdRef",
-          "id": "NamedRef___HZT7BmdKPWrNmNf8DX9Ic"
+          "id": "NamedRef___4179407418329276385"
         },
         {
           "kind": "IdRef",
-          "id": "NamedRef___wSTTC2Zre_TlYSP34-A6J"
+          "id": "NamedRef___20453710653391294"
         }
       ],
       "loc": null
     },
-    "Step___Pf26DWQwYmC1AvtOJ6sKz": {
+    "Step___14517732627568087162": {
       "kind": "Step",
       "content": [
         {
           "kind": "IdRef",
-          "id": "Command_build-the-images"
+          "id": "Command---build-the-images"
         }
       ]
     },
-    "Step___vpxX_VpvKEhd3dDPE4vEC": {
+    "Step___2204267961231512607": {
       "kind": "Step",
       "content": [
         {
           "kind": "IdRef",
-          "id": "Command_run-the-tests"
+          "id": "Command---run-the-tests"
         }
       ]
     }

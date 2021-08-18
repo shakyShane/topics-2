@@ -4,24 +4,24 @@ use typescript_definitions::TypeScriptify;
 use crate::input_lang::InputLanguage;
 use crate::IrItem;
 
-#[derive(Debug, Clone, Default, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq, Eq, Hash, TypeScriptify)]
 pub struct Command {
     pub(crate) name: String,
     pub(crate) content: Vec<IrItem>,
 }
 
-#[derive(Debug, Clone, Default, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq, Eq, Hash, TypeScriptify)]
 pub struct CommandDefinition {
     command: String,
     params: CommandParams,
 }
 
-#[derive(Debug, Clone, Default, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq, Eq, Hash, TypeScriptify)]
 pub struct CommandParams {
     language: Option<InputLanguage>,
 }
 
-#[derive(Debug, Clone, Default, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq, Eq, Hash, TypeScriptify)]
 pub struct CommandConfig {
     config: String,
     params: CommandParams,

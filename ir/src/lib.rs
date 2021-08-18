@@ -16,6 +16,7 @@ pub use crate::{
     named_ref_list::NamedRefList,
     step::Step,
 };
+use std::hash::{Hash, Hasher};
 
 pub mod action;
 pub mod command;
@@ -36,7 +37,7 @@ pub struct Ir {
     pub items: Vec<IrItem>,
 }
 
-#[derive(Debug, Clone, Deserialize, Serialize, TypeScriptify)]
+#[derive(Debug, Clone, Deserialize, Serialize, PartialEq, Eq, Hash, TypeScriptify)]
 #[serde(tag = "kind")]
 pub enum IrItem {
     Action(Action),
@@ -71,19 +72,19 @@ impl IrItem {
     }
     pub fn id(&self) -> String {
         match self {
-            IrItem::Action(ac) => format!("Action_{}", slug::slugify(&ac.name)),
-            IrItem::Instruction(ins) => format!("Instruction_{}", slug::slugify(&ins.name)),
-            IrItem::Markdown(_) => format!("Markdown___{}", nanoid::nanoid!()),
-            IrItem::DependencyList(_dl) => format!("DependencyList___{}", nanoid::nanoid!()),
-            IrItem::NamedRefList(_) => format!("NamedRefList___{}", nanoid::nanoid!()),
-            IrItem::NamedRef(_) => format!("NamedRef___{}", nanoid::nanoid!()),
-            IrItem::IdRef(_) => format!("IdRef___{}", nanoid::nanoid!()),
-            IrItem::Step(_step) => format!("Step___{}", nanoid::nanoid!()),
-            IrItem::Command(cmd) => format!("Command_{}", slug::slugify(&cmd.name)),
-            IrItem::CommandDefinition(_) => format!("CommandDefinition___{}", nanoid::nanoid!()),
-            IrItem::CommandConfig(_) => format!("CommandConfig___{}", nanoid::nanoid!()),
-            IrItem::Config(cfg) => format!("Config_{}", slug::slugify(&cfg.name)),
-            IrItem::ConfigDefinition(_) => format!("ConfigDefinition___{}", nanoid::nanoid!()),
+            IrItem::Action(ac) => format!("Action---{}", slug::slugify(&ac.name)),
+            IrItem::Instruction(ins) => format!("Instruction---{}", slug::slugify(&ins.name)),
+            IrItem::Markdown(md) => format!("Markdown___{}", hash(&md)),
+            IrItem::DependencyList(dl) => format!("DependencyList___{}", hash(dl)),
+            IrItem::NamedRefList(nrl) => format!("NamedRefList___{}", hash(nrl)),
+            IrItem::NamedRef(named_ref) => format!("NamedRef___{}", hash(named_ref)),
+            IrItem::IdRef(id_ref) => format!("IdRef___{}", hash(id_ref)),
+            IrItem::Step(step) => format!("Step___{}", hash(step)),
+            IrItem::Command(cmd) => format!("Command---{}", slug::slugify(&cmd.name)),
+            IrItem::CommandDefinition(cmd_def) => format!("CommandDefinition___{}", hash(cmd_def)),
+            IrItem::CommandConfig(cmf_config) => format!("CommandConfig___{}", hash(cmf_config)),
+            IrItem::Config(cfg) => format!("Config---{}", slug::slugify(&cfg.name)),
+            IrItem::ConfigDefinition(cfg_def) => format!("ConfigDefinition___{}", hash(cfg_def)),
         }
     }
     pub fn children(&self) -> Option<&Vec<IrItem>> {
@@ -103,6 +104,16 @@ impl IrItem {
             IrItem::ConfigDefinition(_) => None,
         }
     }
+}
+
+fn hash<T>(t: T) -> String
+where
+    T: Hash,
+{
+    use std::collections::hash_map::DefaultHasher;
+    let mut hasher = DefaultHasher::new();
+    t.hash(&mut hasher);
+    hasher.finish().to_string()
 }
 
 // #[derive(thiserror::Error, Debug)]

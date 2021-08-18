@@ -1,6 +1,6 @@
 use crate::{IdRef, Ir, IrItem};
 use serde::{Deserialize, Serialize};
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap};
 use std::convert::TryInto;
 use typescript_definitions::TypeScriptify;
 
